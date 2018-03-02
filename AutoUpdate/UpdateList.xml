@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<AutoUpdater>
+	<Description>CMSM autoUpdate</Description>
+	<Updater>
+		<Url>http://localhost/AutoUpdate_LJ/</Url>
+		<LastUpdateTime>2009-03-16</LastUpdateTime>
+	</Updater>
+	<Application applicationId = "CMSM">
+		<EntryPoint>CMSM.exe</EntryPoint>
+		<Location>.</Location>
+		<Version>1.0.3375.22229</Version>
+	</Application>
+	<Files>
+		<File Ver="1.0.3375.22229" Name= "CMSMData.dll" />
+		<File Ver="1.0.3375.22229" Name= "CardCommon.dll" />
+		<File Ver="1.0.3375.22229" Name= "CMSM.exe" />
+	</Files>
+</AutoUpdater>

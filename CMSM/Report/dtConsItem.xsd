@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="dtConsItem" targetNamespace="http://www.tempuri.org/dtConsItem.xsd" xmlns:mstns="http://www.tempuri.org/dtConsItem.xsd" xmlns="http://www.tempuri.org/dtConsItem.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:element name="dtConsItem" msdata:IsDataSet="true" msdata:Locale="zh-CN">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="tbConsItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="cnvcCardID" type="xs:string" minOccurs="0" />
+              <xs:element name="cnvcLicenseTags" type="xs:string" minOccurs="0" />
+              <xs:element name="cnvcCompanyName" type="xs:string" minOccurs="0" />
+              <xs:element name="cnvcGoodsName" type="xs:string" minOccurs="0" />
+              <xs:element name="cnvcGoodsType" type="xs:string" minOccurs="0" />
+              <xs:element name="cnvcUnit" type="xs:string" minOccurs="0" />
+              <xs:element name="cnnCount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cnnPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cnnFee" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
