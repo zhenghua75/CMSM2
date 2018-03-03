@@ -245,52 +245,6 @@ namespace CardCommon.CardRef
 				strCardID=System.Text.Encoding.ASCII.GetString(buff);
 				strCardID=strCardID.Substring(0,5);
 			}
-//
-//			//Óà¶î
-//			st = RFDef.rf_read(icdev,sec*5,databuff);
-//			if(st!=0)
-//			{
-//				quit();
-//				return ConstMsg.RFREADERR;
-//			}
-//			else
-//			{
-//				RFDef.hex_a(databuff,buff,16);
-//				string strCharge=System.Text.Encoding.ASCII.GetString(buff);
-//				int fcIndex=strCharge.IndexOf("F",0);
-//				if(fcIndex==-1)
-//				{
-//					quit();
-//					return ConstMsg.RFREADCHARGEERR;
-//				}
-//				else
-//				{
-//					dCurCharge=double.Parse(strCharge.Substring(0,fcIndex)+"."+strCharge.Substring(30,2));
-//				}
-//			}
-
-			//»ý·Ö
-//			st = RFDef.rf_read(icdev,sec*6,databuff);
-//			if(st!=0)
-//			{
-//				quit();
-//				return ConstMsg.RFREADERR;
-//			}
-//			else
-//			{
-//				RFDef.hex_a(databuff,buff,16);
-//				string strIg=System.Text.Encoding.ASCII.GetString(buff);
-//				int fiIndex=strIg.IndexOf("F",0);
-//				if(fiIndex==-1)
-//				{
-//					quit();
-//					return ConstMsg.RFREADCHARGEERR;
-//				}
-//				else
-//				{
-//					iCurIg=int.Parse(strIg.Substring(0,fiIndex));
-//				}
-//			}
 
 			//·äÃù
 			st = RFDef.rf_beep(icdev,2);
