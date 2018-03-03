@@ -38,7 +38,7 @@ namespace CardCommon.CardRef
 				quit();
 				return;
 			}
-			
+
 			//设置时间
 			byte[] time1=new byte[14];
 			byte[] time2=new byte[7];
@@ -80,7 +80,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,1,out tagtype);
 			if(st!=0)
@@ -88,14 +88,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -107,7 +107,7 @@ namespace CardCommon.CardRef
 			byte[] akey1=new byte[16];
 			byte[] akey2=new byte[6];
 
-			string akey="A3D4C68CD9E5";
+			string akey="123456789012";
 			akey1=Encoding.ASCII.GetBytes(akey);
 			RFDef.a_hex(akey1,akey2,12);
 			st = RFDef.rf_load_key(icdev, 0, sec, akey2);
@@ -122,7 +122,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFAUTHENTICATION_A_ERR;
 			}
-			
+
 			//写卡号
 			byte[] databuff=new byte[16];
 			byte[] buff=new byte[32];
@@ -142,8 +142,8 @@ namespace CardCommon.CardRef
 			//改密码
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
-			akey="D5E2A7FFC345";
-			string bkey="A01E83C2EB33";
+			akey="123456789012";
+			string bkey="123456789012";
 			akey1=Encoding.ASCII.GetBytes(akey);
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(akey1,akey2,12);
@@ -154,7 +154,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFCHANGEB3ERR;
 			}
-			
+
 			//蜂鸣
 			st = RFDef.rf_beep(icdev,3);
 			quit();
@@ -180,7 +180,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,1,out tagtype);
 			if(st!=0)
@@ -188,14 +188,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -207,7 +207,7 @@ namespace CardCommon.CardRef
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
 
-			string bkey="A01E83C2EB33";
+			string bkey="123456789012";
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(bkey1,bkey2,12);
 			st = RFDef.rf_load_key(icdev, 4, sec, bkey2);
@@ -222,7 +222,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFAUTHENTICATION_B_ERR;
 			}
-			
+
 			//读卡号
 			int i=0;
 			byte[] databuff=new byte[16];
@@ -241,7 +241,7 @@ namespace CardCommon.CardRef
 			}
 			else
 			{
-				RFDef.hex_a(databuff,buff,16);	
+				RFDef.hex_a(databuff,buff,16);
 				strCardID=System.Text.Encoding.ASCII.GetString(buff);
 				strCardID=strCardID.Substring(0,5);
 			}
@@ -255,7 +255,7 @@ namespace CardCommon.CardRef
 //			}
 //			else
 //			{
-//				RFDef.hex_a(databuff,buff,16);	
+//				RFDef.hex_a(databuff,buff,16);
 //				string strCharge=System.Text.Encoding.ASCII.GetString(buff);
 //				int fcIndex=strCharge.IndexOf("F",0);
 //				if(fcIndex==-1)
@@ -278,7 +278,7 @@ namespace CardCommon.CardRef
 //			}
 //			else
 //			{
-//				RFDef.hex_a(databuff,buff,16);	
+//				RFDef.hex_a(databuff,buff,16);
 //				string strIg=System.Text.Encoding.ASCII.GetString(buff);
 //				int fiIndex=strIg.IndexOf("F",0);
 //				if(fiIndex==-1)
@@ -294,7 +294,7 @@ namespace CardCommon.CardRef
 
 			//蜂鸣
 			st = RFDef.rf_beep(icdev,2);
-			
+
 			quit();
 			return ConstMsg.RFOK;
 		}
@@ -315,7 +315,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,1,out tagtype);
 			if(st!=0)
@@ -323,14 +323,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -342,7 +342,7 @@ namespace CardCommon.CardRef
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
 
-			string bkey="A01E83C2EB33";
+			string bkey="123456789012";
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(bkey1,bkey2,12);
 			st = RFDef.rf_load_key(icdev, 4, sec, bkey2);
@@ -399,12 +399,12 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFWRITEERR;
 			}
-			
+
 			//改密码
 			byte[]akey1=new byte[16];
 			byte[]akey2=new byte[6];
-			bkey="B01B4C49A3D3";
-			string akey="A3D4C68CD9E5";
+			bkey="123456789012";
+			string akey="123456789012";
 			akey1=Encoding.ASCII.GetBytes(akey);
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(akey1,akey2,12);
@@ -415,7 +415,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFCHANGEB3ERR;
 			}
-			
+
 			//蜂鸣
 			st = RFDef.rf_beep(icdev,3);
 			quit();
@@ -448,7 +448,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,1,out tagtype);
 			if(st!=0)
@@ -456,14 +456,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -475,7 +475,7 @@ namespace CardCommon.CardRef
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
 
-			string bkey="A01E83C2EB33";
+			string bkey="123456789012";
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(bkey1,bkey2,12);
 			st = RFDef.rf_load_key(icdev, 4, sec, bkey2);
@@ -503,7 +503,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREADERR;
 			}
-			
+
 			//写余额
 			byte[] databuff=new byte[16];
 			byte[] buff=new byte[32];
@@ -558,7 +558,7 @@ namespace CardCommon.CardRef
 				else
 				{
 					double dFillFeeInv=0;
-					RFDef.hex_a(databuff,buff,16);	
+					RFDef.hex_a(databuff,buff,16);
 					string strCharge=System.Text.Encoding.ASCII.GetString(buff);
 					int fcIndex=strCharge.IndexOf("F",0);
 					if(fcIndex==-1)
@@ -596,7 +596,7 @@ namespace CardCommon.CardRef
 						{
 							quit();
 							return "ROL|校验错误，反写成功，trans回滚。";
-						}					
+						}
 					}
 					else
 					{
@@ -625,7 +625,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,0,out tagtype);
 			if(st!=0)
@@ -633,14 +633,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -652,7 +652,7 @@ namespace CardCommon.CardRef
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
 
-			string bkey="A01E83C2EB33";
+			string bkey="123456789012";
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(bkey1,bkey2,12);
 			st = RFDef.rf_load_key(icdev, 4, sec, bkey2);
@@ -679,7 +679,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREADERR;
 			}
-			
+
 			//准备余额至databuff
 			byte[] databuff=new byte[16];
 			byte[] buff=new byte[32];
@@ -736,7 +736,7 @@ namespace CardCommon.CardRef
 				else
 				{
 					double dChargeInv=0;
-					RFDef.hex_a(databuff,buff,16);	
+					RFDef.hex_a(databuff,buff,16);
 					string strCharge=System.Text.Encoding.ASCII.GetString(buff);
 					int fcIndex=strCharge.IndexOf("F",0);
 					if(fcIndex==-1)
@@ -774,7 +774,7 @@ namespace CardCommon.CardRef
 						{
 							quit();
 							return "ROL|校验错误，反写成功，trans回滚。";
-						}					
+						}
 					}
 					else
 					{
@@ -801,7 +801,7 @@ namespace CardCommon.CardRef
 			UInt16 tagtype=0;
 			byte size=0;
 			uint snr=0;
-			
+
 			RFDef.rf_reset(icdev, 10);
 			st = RFDef.rf_request(icdev,1,out tagtype);
 			if(st!=0)
@@ -809,14 +809,14 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFREQUESTERR;
 			}
-			
+
 			st = RFDef.rf_anticoll(icdev,0,out snr);
 			if(st!=0)
 			{
 				quit();
 				return ConstMsg.RFANTICOLLERR;
 			}
-			
+
 			st = RFDef.rf_select(icdev,snr,out size);
 			if(st!=0)
 			{
@@ -828,7 +828,7 @@ namespace CardCommon.CardRef
 			byte[] bkey1=new byte[16];
 			byte[] bkey2=new byte[6];
 
-			string bkey="A01E83C2EB33";
+			string bkey="123456789012";
 			bkey1=Encoding.ASCII.GetBytes(bkey);
 			RFDef.a_hex(bkey1,bkey2,12);
 			st = RFDef.rf_load_key(icdev, 4, sec, bkey2);
@@ -843,7 +843,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFAUTHENTICATION_A_ERR;
 			}
-			
+
 			//写积分
 			byte[] databuff=new byte[16];
 			byte[] buff=new byte[32];
@@ -860,7 +860,7 @@ namespace CardCommon.CardRef
 				quit();
 				return ConstMsg.RFWRITEERR;
 			}
-			
+
 			//蜂鸣
 			st = RFDef.rf_beep(icdev,3);
 			quit();
